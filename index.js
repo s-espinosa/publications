@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
-app.set('port', process.env.PORT || port)
+const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -67,6 +66,4 @@ app.get('/api/v1/papers/:id', (request, response) => {
     })
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
-})
+app.listen(port, () => console.log(`Publications listening on port ${port}!`))

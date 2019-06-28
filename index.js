@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+app.set('port', process.env.PORT || port)
 const bodyParser = require('body-parser')
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
